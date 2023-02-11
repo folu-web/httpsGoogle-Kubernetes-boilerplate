@@ -10,8 +10,8 @@ pipeline {
       
       stage ('Permissions') {
         steps {
-                sh 'apt-get update'
-                sh 'apt-get install -y docker.io'
+                sh -E 'apt-get update'
+                sh -E 'apt-get install -y docker.io'
                 sh 'usermod -aG docker ${USER}'
                 sh 'newgrp docker'
                 sh 'docker run hello-world'
