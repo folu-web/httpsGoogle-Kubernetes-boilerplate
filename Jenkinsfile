@@ -6,15 +6,15 @@ pipeline {
     IMAGE_TAG = 'v2'
     K8S_NAMESPACE = 'production'
   }
-  stages {
-    stage ('Permissions') {
+    stages {
+      
+      stage ('Permissions') {
         steps {
-                sh 'sudo usermod -aG docker ${USER}'
+                sh 'usermod -aG docker ${USER}'
                 sh 'newgrp docker'
-                sh 'sudo docker run hello-world'
+                sh 'docker run hello-world'
         }
-
-  stages {
+      }
     stage('Build and Push Docker Image') {
       steps {
         sh 'docker build -t frontend:$IMAGE_TAG .'
