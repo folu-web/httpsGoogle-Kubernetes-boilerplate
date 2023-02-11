@@ -10,6 +10,7 @@ pipeline {
       
       stage ('Permissions') {
         steps {
+                sh 'echo jenkins --version'
                 sh -E 'apt update'
                 sh -E 'apt-get install -y docker.io'
                 sh 'usermod -aG docker ${USER}'
