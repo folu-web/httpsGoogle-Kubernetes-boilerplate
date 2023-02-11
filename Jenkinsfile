@@ -9,8 +9,8 @@ pipeline {
   stages {
     stage('Build and Push Docker Image') {
       steps {
-        sh 'sudo docker build -t frontend:$IMAGE_TAG .'
-        sh 'sudo docker push frontend:$IMAGE_TAG'
+        sh 'docker build -t frontend:$IMAGE_TAG .'
+        sh 'docker push frontend:$IMAGE_TAG'
       }
     }
     stage('Deploy to EKS') {
