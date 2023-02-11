@@ -3,7 +3,7 @@ pipeline {
   environment {
     CLUSTER_NAME = 'bootcamp'
     SERVICE_NAME = 'frontend'
-    IMAGE_TAG = 'v2'
+    IMAGE_TAG = 'v1'
     K8S_NAMESPACE = 'production'
   }
     stages {
