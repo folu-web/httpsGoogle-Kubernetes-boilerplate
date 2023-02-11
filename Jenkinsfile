@@ -8,16 +8,7 @@ pipeline {
   }
     stages {
       
-      stage ('Permissions') {
-        steps {
-                
-                sh 'sudo apt-get update'
-                sh 'sudo apt-get install -y docker.io'
-                sh 'usermod -aG docker ${USER}'
-                sh 'newgrp docker'
-                sh 'docker run hello-world'
-        }
-      }
+      
     stage('Build and Push Docker Image') {
       steps {
         sh 'docker build -t frontend:$IMAGE_TAG .'
